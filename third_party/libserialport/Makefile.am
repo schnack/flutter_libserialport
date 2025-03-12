@@ -51,7 +51,8 @@ if MACOSX
 libserialport_la_LDFLAGS += -framework IOKit -framework CoreFoundation
 endif
 
-nodist_include_HEADERS = libserialport.h
+library_includedir = $(includedir)
+library_include_HEADERS = libserialport.h
 
 pkgconfigdir = $(libdir)/pkgconfig
 pkgconfig_DATA = libserialport.pc
@@ -68,9 +69,12 @@ EXTRA_DIST = Doxyfile \
 	examples/port_info.c \
 	examples/port_config.c \
 	examples/await_events.c \
-	examples/handle_errors.c
+	examples/handle_errors.c \
+	examples/send_receive.c \
+	examples/examples.sln \
+	examples/projects
 
-MAINTAINERCLEANFILES = ChangeLog
+DISTCLEANFILES = ChangeLog
 
 .PHONY: ChangeLog doc
 
